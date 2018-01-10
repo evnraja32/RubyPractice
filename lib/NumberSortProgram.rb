@@ -15,7 +15,7 @@ class NumberSortProgram
       unless arrayToSort.empty?
         @arrayToSort = arrayToSort
       else
-        raise "Please input the number to start sorting"
+        raise
       end
     rescue
       @arrayToSort = input_array
