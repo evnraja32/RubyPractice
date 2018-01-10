@@ -15,10 +15,14 @@ class NumberSort
       unless arrayToSort.empty?
         raise "Please input the number to start sorting"
       end
+      @arrayToSort = arrayToSort
     rescue
-      
+      this(input_array)
     end
+    
   end
+  
+  
   
   
 end
