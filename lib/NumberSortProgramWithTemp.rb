@@ -1,5 +1,5 @@
 #========================================================================================
-# File: NumberSortProgram.rb
+# File: NumberSortProgramWithTemp.rb
 #
 # DESCRIPTION
 #     This program will sort the numbers in a given array into ascending and descending
@@ -8,7 +8,7 @@
 #========================================================================================
 
 
-class NumberSortProgram
+class NumberSortProgramWithTemp
   
   def initialize(arrayToSort)
     begin
@@ -35,21 +35,21 @@ class NumberSortProgram
     return arrayToReturn
   end
   
-  def swap(a,b)
-    t = a
-    a = b
-    b = t
-    return a,b
+  def swap(i,j)
+    #    puts "i : #{i} + j : #{j}"
+    @arrayToSort[i] = @arrayToSort[i] + @arrayToSort[j]
+    @arrayToSort[j] = @arrayToSort[i] - @arrayToSort[j]
+    @arrayToSort[i] = @arrayToSort[i] - @arrayToSort[j]
+    #    return a,b
   end
   
   def sort_to_ascending_order
    
     arrSize = (@arrayToSort.size-1)
     for i in 0..arrSize
-      tempNum = @arrayToSort.at(i)
       for j in 0..arrSize
-        if tempNum < @arrayToSort.at(j)
-          @arrayToSort[i],@arrayToSort[j] = swap(@arrayToSort[i],@arrayToSort[j])
+        if @arrayToSort.at(i) < @arrayToSort.at(j)
+          swap(i,j)
         end
       end
     end
@@ -62,10 +62,9 @@ class NumberSortProgram
     
     arrSize = (@arrayToSort.size-1)
     for i in 0..arrSize
-      tempNum = @arrayToSort.at(i)
       for j in 0..arrSize
-        if tempNum > @arrayToSort.at(j)
-          @arrayToSort[i],@arrayToSort[j] = swap(@arrayToSort[i],@arrayToSort[j])
+        if @arrayToSort.at(i) > @arrayToSort.at(j)
+          swap(i,j)
         end
       end
     end
@@ -77,6 +76,6 @@ end
 
 
 arr = [1,3,4,9,2,0,5,6,7,8]
-obj = NumberSortProgram.new([])
+obj = NumberSortProgramWithTemp.new(arr)
 puts obj.sort_to_ascending_order
 puts obj.sort_to_descending_order
