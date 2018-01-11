@@ -64,7 +64,7 @@ class NumberSortProgramWithTemp
     for i in 0..arrSize
       for j in 0..arrSize
         if @arrayToSort.at(i) > @arrayToSort.at(j)
-          swap(i,j)
+          swap(i,j);
         end
       end
     end
