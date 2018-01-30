@@ -15,3 +15,13 @@ else
 end
 
 
+1.upto(20) {
+  
+  |i|
+  
+  if (i%2 == 0)
+    puts "even"
+  else
+    puts "odd"
+  end
+}
